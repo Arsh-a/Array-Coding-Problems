@@ -1,0 +1,52 @@
+/*PEAK ELEMENT: we have to find the fist number who is greater than both it's neighbours. 
+If the array is in increasing order, then the last element would be the peak element. 
+If the array is in decreasing order then the first element would be the peak element.
+Otherwise we have to loop through the array from index 1 to size-1 to find the peak element
+*/
+//program to print the peak element in an array
+#include <stdio.h>
+
+void peak(int arr[], int size){
+//if first element is greater than the second element, first element is the peak element
+    if(arr[0]>arr[1]){
+        printf("\npeak element is : %d",arr[0]);
+    }
+
+//if the last element is greater than the second last element, then last element is the peak element
+    else if(arr[size-1]>arr[size-2])
+    {
+        printf("\npeak element is : %d",arr[size-1]);
+    }
+
+//if both the above cases are false, we have to loop through the array
+    else{
+        for(int i=1;i<size-1;i++){
+            if(arr[i]>arr[i-1] && arr[i]>arr[i+1])
+            {
+                printf("\npeak element is : %d",arr[i]);
+                break;
+            }
+        }
+    }
+}
+int main() {
+
+//getting the size of array from user and storing in a variable
+   int size;
+   printf("\nEnter the size of the array : ");
+   scanf("%d",&size);
+
+//declaring an array of size specified by the user
+   int arr[size];
+   printf("\nEnter the array elements: \n");
+
+//obtaining array elements from the user
+   for(int i=0;i<size;i++){
+       scanf("%d",&arr[i]);
+   }
+
+//calling peak function
+   peak(arr,size);
+
+    return 0;
+}
