@@ -1,0 +1,47 @@
+/*Program to reverse array using loop*/
+
+#include <stdio.h>
+#include <limits.h>
+
+
+//function to reverse the array
+void reverse(int arr[], int n)
+{
+    for(int i=0;i<n/2;i++){
+        int temp=arr[i];
+        arr[i]=arr[n-i-1];
+        arr[n-i-1]=temp;
+    }
+}
+
+//function to display the array
+void display(int arr[], int n){
+    for(int i=0;i<n;i++){
+        printf("\t%d",arr[i]);
+    }printf("\n");
+}
+int main(){
+
+
+//obtaining the size of the array from user
+    int n;
+    printf("\nEnter the size of array : ");
+    scanf("%d",&n);
+
+//declaring an array of size n
+    int arr[n];
+    printf("\nEnter the array elements : ");
+
+//obtaining array elements from the user
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+
+//displaying the intial arry    
+    display(arr,n);
+//calling the reverse function
+    reverse(arr,n);
+//displaying the reversed array
+    display(arr,n);
+    
+}
