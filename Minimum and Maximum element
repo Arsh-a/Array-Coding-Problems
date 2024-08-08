@@ -1,0 +1,51 @@
+/*Program to find the minimum and maximum element in an array.
+Here I used a fuction MinAndMax and updated two variables min
+and max by comparing it with array elements. limits.h header file
+is added to find the max and min values of integer
+
+instead of that, you can also assign arr[0] as min
+and arr[0] as max
+*/
+
+#include <stdio.h>
+#include <limits.h>
+
+//function to find min and max elements
+void MinAndMax(int arr[], int n, int* max, int* min){
+  
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i]<*min){
+            *min=arr[i];
+        }
+        if(arr[i]>*max){
+            *max=arr[i];
+        }
+    }
+    
+}
+int main(){
+        int min=INT_MAX;
+        int max=INT_MIN;
+
+//getting the size of array from user
+    int n;
+    printf("\nEnter the size of array : ");
+    scanf("%d",&n);
+
+//declaring an array of size n
+    int arr[n];
+    printf("\nEnter the array elements : ");
+
+//obtaining array elements from the user
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+
+//calling the min and max function
+    MinAndMax(arr,n,&max,&min);
+
+//printing the results
+    printf("\nMinimum vlue is : %d",min);
+    printf("\nMaximum vlue is : %d",max);
+}
